@@ -1,0 +1,10 @@
+<% @pokemons.each do |pokemon| %>
+	<h1><%= pokemon.name %></h1>
+	<h3>Type: <%= pokemon.poke_type %></h3>
+	<h3>MAX CP: <%= pokemon.cp %></h3>
+	<h3>Best Moves: </h3>
+	<% pokemon.moves.each do |move| %>
+		<p><%= move.name %> DMG: <%= move.damage %> DPS: <%= move.dps %> Types: <%= move.poke_type %></p>
+	<% end %>
+	<h3>Description: <%= pokemon.description %></h3>
+<% end %>
