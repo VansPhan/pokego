@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="column left">
+		<img class="img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/<%= @pokemon.name.downcase %>.gif" width="100" height="100">
+	</div>
+	<div class="column">
+		<h1><%= @pokemon.name %></h1><div class="remove type-icon type-<%= @pokemon.poke_type.downcase %>"><%= @pokemon.poke_type %></div>
+		<hr>
+		<article><%= @pokemon.description %></article>
+		<h4>MAX CP: <%= @pokemon.cp %></h4>
+		<h4>Best Moveset</h4>
+		<% @pokemon.moves.each do |move| %>
+			<span><div class="type-icon type-<%= move.poke_type.downcase %>"><%= move.poke_type %></div> <%= move.name %></span> </br>
+		<% end %>
+	</div>
+</div>
