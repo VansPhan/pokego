@@ -14,9 +14,9 @@ class PokemonsController < ApplicationController
 	end
 
 	def create
-		# @pokemon = Pokemon.new(pokemon_params)
-		render plain: "#{pokemon_params.inspect}"
-		# error "create"
+		pokemon_params["moves"] = Move.where(:name => pokemon_params["moves"])
+		@pokemon = Pokemon.new(pokemon_params)
+		error "create"
 	end
 
 	def edit
@@ -32,7 +32,7 @@ class PokemonsController < ApplicationController
 	private
 
 	def pokemon_params
-		params.require(:pokemon).permit(:name, :cp, :description, :poke_type, :moves)
+		params.require(:pokemon).permit!
 	end
 
 	def set_pokemon

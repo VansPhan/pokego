@@ -25,8 +25,12 @@
 	   	</div>
 
 	   	<div class="form-item">
-			  	<%= f.label :moves %>
-			  	<%= f.select :moves, options_for_select(Move.all.map{ |i| i.name }) %>
+		   	<% Move.all.each do |move| %>
+		   		<div class="item">
+			   		<%= f.check_box :moves, {multiple: true}, move.name, nil %>
+			   		<%= f.label :moves, move.name %>
+		   		</div>
+		   	<% end %>
 	   	</div>
 
 	  <%= f.submit "Submit", :class => "remove" %>
