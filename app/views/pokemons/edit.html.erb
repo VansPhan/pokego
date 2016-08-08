@@ -1,0 +1,29 @@
+<div class="form">
+	<%= form_for @pokemon do |f| %>
+	  <div class="form-item">
+	  	<%= f.select :name, options_for_select(@pokemons.map{ |i| i }, @pokemon.name) %>
+	  </div>
+	  <br>
+	  <div class="form-item">
+		  <%= f.label :cp, "CP" %>
+		  <%= f.text_field :cp %>
+	  </div>
+	  <div class="form-item">
+		  <%= f.label :description %>
+		  <%= f.text_field :description %>
+	  </div>
+	  <div class="form-item">
+			Pokemon TYPE:
+			<div class="type-wrapper">
+				<% @types.each do |type| %>
+					<label>
+					<input type="radio" <%= @pokemon.poke_type == type ? "checked" : ""  %> name="pokemon[poke_type]" value="<%= type %>"></input>
+					<span class="type-icon type-<%= type.downcase %>"><%= type %></span>
+					</label>
+				<% end %>
+			</div>
+	   </div>
+
+	  <%= f.submit "Submit", :class => "remove" %>
+	<% end %>
+</div>
