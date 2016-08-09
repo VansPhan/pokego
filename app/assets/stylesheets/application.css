@@ -108,10 +108,13 @@ input[type=text] {
     font-size: 22px;
 }
 
+
+
 /*TYPES*/
 
 .type-wrapper {
     width: 600px;
+    margin: 20px;
 }
 
 .type-icon {

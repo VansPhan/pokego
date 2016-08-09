@@ -25,6 +25,7 @@ class PokemonsController < ApplicationController
 	end
 
 	def update
+		pokemon_params["moves"] = Move.where(:name => pokemon_params["moves"])
 		@pokemon.update(pokemon_params)
 		error "update"
 	end
