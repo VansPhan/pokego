@@ -1,5 +1,8 @@
 <div class="form">
 	<%= form_for @pokemon do |f| %>
+	<%= button_to 'Delete', @pokemon, :class => "remove", 
+            	method: :delete,
+            	data: { confirm: 'Are you sure you want to delete?' } %>
 	  	<div class="form-item">
 	  		<%= f.select :name, options_for_select(@pokemons.map{ |i| i }, @pokemon.name) %>
 	  	</div>
@@ -10,7 +13,8 @@
 	  	</div>
  		<div class="form-item">
 			<%= f.label :description %>
-			<%= f.text_field :description %>
+			<br>
+			<%= f.text_area :description, rows: 7 %>
  		</div>
 	  	<div class="form-item">
 			Pokemon TYPE:
@@ -23,20 +27,18 @@
 				<% end %>
 			</div>
 	   	</div>
-	   	<div class="form-item">
-	   		Moves:
-	   		<div class="type-wrapper">
-			   	<% Move.all.each do |move| %>
-			   		<div class="item">
-			   			<label>
-				   		<%= f.check_box :moves, { multiple: true }, move.name, nil %>
-				   		<%= move.name %>
-				   		</label>
-			   		</div>
-			   	<% end %>
-		   	</div>
+	  	<div class="form-item container">
+		   	<label class="form-item">
+		   		<h4>Quick Move</h4>
+		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.name }, :selected => @pokemon.moves.first.name) %>
+		  	</label>
+		  	<br>
+		  	<label class="form-item">
+		  		<h4>Main Move</h4>
+		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.name }, :selected => @pokemon.moves.last.name) %>
+		  	</label>
 	   	</div>
 
-	  <%= f.submit "Submit", :class => "remove" %>
+	<%= f.submit "Submit", :class => "remove" %>
 	<% end %>
 </div>

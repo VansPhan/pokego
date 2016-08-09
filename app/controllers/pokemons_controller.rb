@@ -14,7 +14,7 @@ class PokemonsController < ApplicationController
 	end
 
 	def create
-		pokemon_params["moves"] = Move.where(:name => pokemon_params["moves"])
+		pokemon_params["moves"] = [(Move.where(:name => params[:move1])[0])] << (Move.where(:name => params[:move2])[0])
 		@pokemon = Pokemon.new(pokemon_params)
 		error "create"
 	end

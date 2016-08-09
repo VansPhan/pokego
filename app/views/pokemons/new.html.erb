@@ -5,15 +5,15 @@
 	 	 </div>
 	 	 <br>
 	 	 <div class="form-item">
-		  <%= f.label :cp, "CP" %>
+	 	 <h4>CP</h4>
 		  <%= f.text_field :cp %>
 	  	</div>
 	  	<div class="form-item">
-		  <%= f.label :description %>
+	  		<h4>Description</h4>
 		  <%= f.text_field :description %>
 	  	</div>
 	  	<div class="form-item">
-			Pokemon TYPE:
+			<h4>Pokemon TYPE:</h4>
 			<div class="type-wrapper">
 				<% @types.each do |type| %>
 					<label>
@@ -24,13 +24,16 @@
 			</div>
 	   	</div>
 
-	   	<div class="form-item">
-		   	<% Move.all.each do |move| %>
-		   		<div class="item">
-			   		<%= f.check_box :moves, {multiple: true}, move.name, nil %>
-			   		<%= f.label :moves, move.name %>
-		   		</div>
-		   	<% end %>
+	   	<div class="form-item container">
+		   	<label class="form-item">
+		   		<h4>Quick Move</h4>
+		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.name }) %>
+		  	</label>
+		  	<br>
+		  	<label class="form-item">
+		  		<h4>Main Move</h4>
+		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.name }) %>
+		  	</label>
 	   	</div>
 
 	  <%= f.submit "Submit", :class => "remove" %>
