@@ -1,8 +1,8 @@
 <div class="form">
 	<%= form_for @pokemon do |f| %>
-	<%= button_to 'Delete', @pokemon, :class => "remove", 
-            	method: :delete,
-            	data: { confirm: 'Are you sure you want to delete?' } %>
+	<%= link_to 'Delete', @pokemon, :class => "remove", 
+    	method: :delete,
+    	data: { confirm: 'Are you sure you want to delete?' } %>
 	  	<div class="form-item">
 	  		<%= f.select :name, options_for_select(@pokemons.map{ |i| i }, @pokemon.name) %>
 	  	</div>

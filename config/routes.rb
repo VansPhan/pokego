@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
 	root 'pokemons#index'
-	resources :pokemons
+	resource :session
+	resources :pokemons, :users
+
 end

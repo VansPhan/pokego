@@ -95,6 +95,16 @@ nav {
     text-align: center; 
 }
 
+.flash {
+  border: 1px solid black;
+  padding: 1em;
+  background: #eee;
+  text-align: center;
+}
+
+.alert  { color: red;  }
+.notice { color: blue; }
+
 .form {
     margin: 0 auto;
     margin-bottom: 50px;

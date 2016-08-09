@@ -1,6 +1,7 @@
 class PokemonsController < ApplicationController
 	before_action :set_pokemon, only: [:show, :destroy, :update, :edit]
 	def index
+		@session = session[:name]
 		@pokemons = Pokemon.all
 	end
 
@@ -25,9 +26,14 @@ class PokemonsController < ApplicationController
 	end
 
 	def update
-		pokemon_params["moves"] = Move.where(:name => pokemon_params["moves"])
+		pokemon_params["moves"] = [(Move.where(:name => params[:move1])[0])] << (Move.where(:name => params[:move2])[0])
 		@pokemon.update(pokemon_params)
 		error "update"
+	end
+
+	def destroy
+		@pokemon.destroy
+		redirect_to "/pokemons", alert: "Pokemon was successfully deleted."
 	end
 
 	private

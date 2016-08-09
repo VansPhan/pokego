@@ -1,4 +1,8 @@
-<%= link_to "Add Pokemon", new_pokemon_path %>
+<div id="menu">
+	<% if @current_user %>
+     <%= link_to "New Pokemon", new_pokemon_path %>
+    <% end %>
+</div>
 <input type="text" placeholder="Search for a pokémon" autocomplete="off" autofocus="">
 <div class="container">
 	<% @pokemons.each do |pokemon| %>
