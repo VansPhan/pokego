@@ -1,0 +1,25 @@
+<div class="form">
+	<%= form_for @user do |f| %>
+		<div class="form-item">
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %>
+
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name %>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
+		
+		<div class="form-item">
+			<%= f.submit "Update", class: "remove" %>
+		</div>
+	<% end %>
+</div>
