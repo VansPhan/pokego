@@ -1,9 +1,17 @@
-<%= form_for @user, url: session_path, method: :post do |f| %>
-	<%= f.label :username %>
-	<%= f.text_field :username %>
+<div class="form">
+	<%= form_for @user, url: session_path, method: :post do |f| %>
+		<div class="form-item">
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
 
-	<%= f.label :password %>
-	<%= f.text_field :password %>
-
-	<%= f.submit "Sign In" %>
-<% end %>
+		<div class="form-item">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
+		
+		<div class="form-item">
+			<%= f.submit "Sign In", class: "remove" %>
+		</div>
+	<% end %>
+</div>

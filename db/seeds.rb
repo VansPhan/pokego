@@ -1,5 +1,6 @@
 Move.destroy_all
 Pokemon.destroy_all
+Bond.destroy_all
 
 moves = Move.create([
 	{ name: "Vine Whip", damage: 7, dps: 10.8, poke_type: "Grass" },
@@ -13,7 +14,6 @@ moves = Move.create([
 	{ name: "Aqua Tail", damage: 45, dps: 19.6, poke_type: "Water" },
 	{ name: "Water Gun", damage: 6, dps: 12, poke_type: "Water" },
 	{ name: "Hydro Pump", damage: 90, dps: 24.3, poke_type: "Water" }
-
 ])
 
 pokemons = Pokemon.create([

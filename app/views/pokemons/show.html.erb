@@ -3,12 +3,14 @@
 		<img class="img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/<%= @pokemon.name.downcase %>.gif" width="100" height="100">
 	</div>
 	<div class="column">
-		<p>
-		<%= link_to "Edit", edit_pokemon_path(@pokemon) %> | 
-		<%= link_to 'Delete', @pokemon,
-	    	method: :delete,
-	    	data: { confirm: 'Are you sure you want to delete?' } %>
-		</p>
+		<% if @current_user %>
+			<p>
+			<%= link_to "Edit", edit_pokemon_path(@pokemon) %> | 
+			<%= link_to 'Delete', @pokemon,
+		    	method: :delete,
+		    	data: { confirm: 'Are you sure you want to delete?' } %>
+			</p>
+		<% end %>
 		<h1><%= @pokemon.name %></h1><div class="remove type-icon type-<%= @pokemon.poke_type.downcase %>"><%= @pokemon.poke_type %></div>
 		<hr>
 		<article><%= @pokemon.description %></article>

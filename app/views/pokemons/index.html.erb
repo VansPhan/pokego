@@ -1,13 +1,16 @@
-<div id="menu">
+<input type="text" placeholder="Search for a pokémon" autocomplete="off" autofocus="">
+<div class="menu">
 	<% if @current_user %>
-     <%= link_to "New Pokemon", new_pokemon_path %>
+		<%= link_to image_tag("add.png", class: "add"), new_pokemon_path %>
     <% end %>
 </div>
-<input type="text" placeholder="Search for a pokémon" autocomplete="off" autofocus="">
+<hr>
 <div class="container">
 	<% @pokemons.each do |pokemon| %>
 		<div class="pokemon type-<%= pokemon.poke_type.downcase %>">
-			<p class="remove"><%= link_to "Edit", edit_pokemon_path(pokemon) %></p>
+			<% if @current_user %>
+				<p class="remove"><%= link_to "Edit", edit_pokemon_path(pokemon) %></p>
+			<% end %>
 			<h1><%= link_to pokemon.name, pokemon_path(pokemon) %></h1>
 			<img class="img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/<%= pokemon.name.downcase %>.gif" width="100px" height="100px">
 		</div>
