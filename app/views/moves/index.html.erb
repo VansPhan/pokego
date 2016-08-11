@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="column">
+		<div class="menu">
+			<% if @current_user %>
+				<%= link_to image_tag("add.png", class: "add remove"), new_move_path %>
+		    <% end %>
+		</div>
+		<h1>Quick Moves</h1>
+		<% @moves.each do |move| %>
+			<% if move.quick_move == true %>
+				<h3><%= link_to move.name, move_path(move) %></h3>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="column">
+		<div class="menu">
+			<% if @current_user %>
+				<%= link_to image_tag("add.png", class: "add remove"), new_move_path %>
+		    <% end %>
+		</div>
+		<h1>Main Moves</h1>
+		<% @moves.each do |move| %>
+			<% if move.quick_move == false %>
+				<h3><%= link_to move.name, move_path(move) %></h3>
+			<% end %>
+		<% end %>
+	</div>
+</div>

@@ -3,17 +3,17 @@ Pokemon.destroy_all
 Bond.destroy_all
 
 moves = Move.create([
-	{ name: "Vine Whip", damage: 7, dps: 10.8, poke_type: "Grass" },
-	{ name: "Power Whip", damage: 70, dps: 25, poke_type: "Grass" },
-	{ name: "Solar Beam", damage: 120, dps: 25.1, poke_type: "Grass" },
-	{ name: "Scratch", damage: 6, dps: 12, poke_type: "Normal" },
-	{ name: "Flamethrower", damage: 55, dps: 19.4, poke_type: "Fire" },
-	{ name: "Wing Attack", damage: 9, dps: 12, poke_type: "Flying" },
-	{ name: "Fire Blast", damage: 100, dps: 25, poke_type: "Fire" },
-	{ name: "Bubble", damage: 25, dps: 10.9, poke_type: "Water" },
-	{ name: "Aqua Tail", damage: 45, dps: 19.6, poke_type: "Water" },
-	{ name: "Water Gun", damage: 6, dps: 12, poke_type: "Water" },
-	{ name: "Hydro Pump", damage: 90, dps: 24.3, poke_type: "Water" }
+	{ name: "Vine Whip", damage: 7, dps: 10.8, poke_type: "Grass", quick_move: true },
+	{ name: "Power Whip", damage: 70, dps: 25, poke_type: "Grass", quick_move: false },
+	{ name: "Solar Beam", damage: 120, dps: 25.1, poke_type: "Grass", quick_move: false },
+	{ name: "Scratch", damage: 6, dps: 12, poke_type: "Normal", quick_move: true },
+	{ name: "Flamethrower", damage: 55, dps: 19.4, poke_type: "Fire", quick_move: false },
+	{ name: "Wing Attack", damage: 9, dps: 12, poke_type: "Flying", quick_move: true },
+	{ name: "Fire Blast", damage: 100, dps: 25, poke_type: "Fire", quick_move: false },
+	{ name: "Bubble", damage: 25, dps: 10.9, poke_type: "Water", quick_move: true },
+	{ name: "Aqua Tail", damage: 45, dps: 19.6, poke_type: "Water", quick_move: false },
+	{ name: "Water Gun", damage: 6, dps: 12, poke_type: "Water", quick_move: true },
+	{ name: "Hydro Pump", damage: 90, dps: 24.3, poke_type: "Water", quick_move: false }
 ])
 
 pokemons = Pokemon.create([

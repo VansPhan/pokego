@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160809192636) do
     t.integer  "damage"
     t.integer  "dps"
     t.string   "poke_type"
+    t.boolean  "quick_move"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

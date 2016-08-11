@@ -9,19 +9,18 @@ class SessionsController < ApplicationController
 			puts "User found!"
 			if @user.password == params[:user][:password]
 				session[:user_id] = @user.id
-				puts "Login successful"
-				redirect_to user_path(@user.id)
+				redirect_to user_path(@user.id), notice: "User successfully signed in."
 			else
 				puts "Incorrect password"
-				redirect_to new_session_path
+				redirect_to new_session_path, notice: "Wrong password, please try again"
 			end
 		else
 			puts "User does not exist"
-			redirect_to new_session_path
+			redirect_to new_session_path, notice: "User does not exist"
 		end
 	end
 	def destroy
 		reset_session
-		redirect_to :root
+		redirect_to :root, notice: "User successfully signed out."
 	end
 end

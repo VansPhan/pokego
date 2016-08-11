@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 		redirect_to "/users", alert: "User was successfully deleted."
 	end
 	def show
-
 	end
 
 	private

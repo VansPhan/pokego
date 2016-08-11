@@ -8,16 +8,33 @@
 			<%= link_to "Edit", edit_pokemon_path(@pokemon) %> | 
 			<%= link_to 'Delete', @pokemon,
 		    	method: :delete,
-		    	data: { confirm: 'Are you sure you want to delete?' } %>
+		    	data: { confirm: 'Are you sure you want to delete?' } %> | 
+		    	<%= link_to @pokemon do %>
+  					<% if @current_user.pokemons.exists?(@pokemon) %>
+  						Pokemon Owned
+		    		<% else %>
+		    			Catch Pokemon
+		    			<% @current_user.pokemons << @pokemon %>
+		    		<% end %>
+				<% end %>
 			</p>
 		<% end %>
-		<h1><%= @pokemon.name %></h1><div class="remove type-icon type-<%= @pokemon.poke_type.downcase %>"><%= @pokemon.poke_type %></div>
+		<h1><%= @pokemon.name %></h1>
+		<div class="remove type-icon type-<%= @pokemon.poke_type.downcase %>"><%= @pokemon.poke_type %></div>
 		<hr>
 		<article><%= @pokemon.description %></article>
 		<h4>MAX CP: <%= @pokemon.cp %></h4>
 		<h4>Best Moveset</h4>
 		<% @pokemon.moves.each do |move| %>
 			<span><div class="type-icon type-<%= move.poke_type.downcase %>"><%= move.poke_type %></div> <%= move.name %></span> </br>
+		<% end %>
+	</div>
+</div>
+<div class="container">
+	<div class="form">
+		<h1>Trainers that owns a <%= @pokemon.name %></h1>
+		<% @pokemon.users.each do |user| %>
+			<h2><%= user.email %></h2>
 		<% end %>
 	</div>
 </div>

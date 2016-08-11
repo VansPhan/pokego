@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="column">
+		<h1><%= @move.name %></h1>
+		<div class="remove type-icon type-<%= @move.poke_type.downcase %>"><%= @move.poke_type %></div>
+		<% if @current_user %>
+			<p>
+			<%= link_to "Edit", edit_move_path(@move) %> | 
+			<%= link_to 'Delete', @move,
+		    	method: :delete,
+		    	data: { confirm: 'Are you sure you want to delete?' } %>
+			</p>
+		<% end %>
+	</div>
+	<div class="column">
+		<h2>Damage: <%= @move.damage %></h2>
+		<h2>DPS: <%= @move.dps %></h2>
+	</div>
+</div>
+<div class="container">
+	<div class="form">
+		<h1>List of Pokemon with this move</h1>
+		<% @move.pokemons.each do |pokemon| %>
+			<h2><%= pokemon.name %></h2>
+		<% end %>
+	</div>
+</div>
+

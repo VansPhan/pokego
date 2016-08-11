@@ -5,6 +5,7 @@ class CreateMoves < ActiveRecord::Migration[5.0]
       t.integer :damage
       t.integer :dps
       t.string :poke_type
+      t.boolean :quick_move
 
       t.timestamps
     end

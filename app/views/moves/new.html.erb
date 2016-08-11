@@ -1,0 +1,42 @@
+<div class="form">
+	<%= form_for @move do |f| %>
+		 <div class="switch switch-blue">
+		    <input type="radio" class="switch-input" name="move[quick_move]" value="true" id="quick" checked>
+		    <label for="quick" class="switch-label switch-label-off">Quick Move</label>
+		    <input type="radio" class="switch-input" name="move[quick_move]" value="false" id="main">
+		    <label for="main" class="switch-label switch-label-on">Main Move</label>
+		    <span class="switch-selection"></span>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :damage %>
+			<%= f.text_field :damage %>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :dps, "DPS" %>
+			<%= f.text_field :dps %>
+		</div>
+
+		<div class="form-item">
+			<%= f.label :poke_type %>
+			<div class="type-wrapper">
+				<% @types.each do |type| %>
+					<label>
+						<input type="radio" class="check" name="move[poke_type]" value="<%= type %>" <%= type == "Normal" ? "checked" : ""  %>></input>
+						<span for="check" class="type-icon type-<%= type.downcase %>"><%= type %></span>
+					</label>
+				<% end %>
+			</div>
+	   	</div>
+		
+		<div class="form-item">
+			<%= f.submit "Create New Move", class: "remove" %>
+		</div>
+	<% end %>
+</div>

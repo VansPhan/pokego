@@ -1,20 +1,22 @@
 <div class="form">
 	<%= form_for @user do |f| %>
 		<div class="form-item">
-			<%= f.label :first_name %>
+			<h4>First Name</h4>
 			<%= f.text_field :first_name %>
+		</div>
 
-			<%= f.label :last_name %>
+		<div class="form-item">
+		<h4>Last Name</h4>
 			<%= f.text_field :last_name %>
 		</div>
 
 		<div class="form-item">
-			<%= f.label :email %>
+			<h4>Email</h4>
 			<%= f.text_field :email %>
 		</div>
 
 		<div class="form-item">
-			<%= f.label :password %>
+			<h4>Password</h4>
 			<%= f.password_field :password %>
 		</div>
 		
