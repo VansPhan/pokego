@@ -34,7 +34,7 @@
 	<div class="form">
 		<h1>Trainers that owns a <%= @pokemon.name %></h1>
 		<% @pokemon.users.each do |user| %>
-			<h2><%= user.email %></h2>
+			<h2><%= link_to user.email, user %></h2>
 		<% end %>
 	</div>
 </div>

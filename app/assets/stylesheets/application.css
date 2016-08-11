@@ -2,6 +2,20 @@ html {
     font-family: "Fira Sans", "Trebuchet MS", "Tahoma", "Ubuntu", "Helvetica", "Arial", sans-serif;
 }
 
+select {
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("icon.png") 96% / 15% no-repeat #eee;
+}
+
 article {
     line-height: 140%;
 }
@@ -106,6 +120,21 @@ nav {
 }
 
 .pokemon {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 20px;
+    width: 350px;
+    border: 2px solid black;
+    text-align: center; 
+}
+
+.owned-pokemon {
+    background: url("poke-bg.png");
+    background-color: white;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 25px;
     margin: 0 auto;
     margin-bottom: 30px;
     margin-top: 30px;

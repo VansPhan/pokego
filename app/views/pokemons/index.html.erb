@@ -1,6 +1,6 @@
 <%= form_tag pokemons_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for a pokémon" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a pokémon", :autofocus => true %>
     <%= submit_tag "Search", :name => nil, class: "search" %>
   </p>
 <% end %>

@@ -1,12 +1,12 @@
 <div class="form">
 	<%= form_for @user, url: session_path, method: :post do |f| %>
 		<div class="form-item">
-			<%= f.label :email %>
+			<h4>Email</h4>
 			<%= f.text_field :email %>
 		</div>
 
 		<div class="form-item">
-			<%= f.label :password %>
+			<h4>Password</h4>
 			<%= f.password_field :password %>
 		</div>
 		

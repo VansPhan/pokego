@@ -27,12 +27,12 @@
 	   	<div class="form-item container">
 		   	<label class="form-item">
 		   		<h4>Quick Move</h4>
-		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.name }) %>
+		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.quick_move ? i.name : nil }.select{ |i| i }) %>
 		  	</label>
 		  	<br>
 		  	<label class="form-item">
 		  		<h4>Main Move</h4>
-		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.name }) %>
+		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.quick_move ? nil : i.name }.select{ |i| i }) %>
 		  	</label>
 	   	</div>
 

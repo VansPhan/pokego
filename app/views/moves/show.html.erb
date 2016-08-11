@@ -20,7 +20,7 @@
 	<div class="form">
 		<h1>List of Pokemon with this move</h1>
 		<% @move.pokemons.each do |pokemon| %>
-			<h2><%= pokemon.name %></h2>
+			<h2><%= link_to pokemon.name, pokemon_path(pokemon) %></h2>
 		<% end %>
 	</div>
 </div>

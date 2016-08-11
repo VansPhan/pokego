@@ -8,16 +8,15 @@
 	  	</div>
 	  	<br>
 	  	<div class="form-item">
-			<%= f.label :cp, "CP" %>
+			<h4>CP</h4>
 			<%= f.text_field :cp %>
 	  	</div>
  		<div class="form-item">
-			<%= f.label :description %>
-			<br>
+			<h4>Description</h4>
 			<%= f.text_area :description, rows: 7 %>
  		</div>
 	  	<div class="form-item">
-			Pokemon TYPE:
+			<h4>Pokemon TYPE</h4>
 			<div class="type-wrapper">
 				<% @types.each do |type| %>
 					<label>
@@ -30,12 +29,12 @@
 	  	<div class="form-item container">
 		   	<label class="form-item">
 		   		<h4>Quick Move</h4>
-		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.name }, :selected => @pokemon.moves.first.name) %>
+		  		<%= select_tag "move1", options_for_select(Move.all.map{ |i| i.quick_move ? i.name : nil }.select{ |i| i }, :selected => @pokemon.moves.first.name) %>
 		  	</label>
 		  	<br>
 		  	<label class="form-item">
 		  		<h4>Main Move</h4>
-		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.name }, :selected => @pokemon.moves.last.name) %>
+		  		<%= select_tag "move2", options_for_select(Move.all.map{ |i| i.quick_move ? nil : i.name }.select{ |i| i }, :selected => @pokemon.moves.last.name) %>
 		  	</label>
 	   	</div>
 
